@@ -1,0 +1,6 @@
+[蘑菇社区](https://www.moguit.cn/code)
+[Meto面试帮](https://v.metost.com/#/chat)
+[面试鸭](https://www.mianshiya.com/)
+[Javaᶜⁿ 面试突击](https://www.javacn.site/interview/net/)
+[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)
+[面经h](ttps://www.yuque.com/njoptzza/ek5uzd/gr4mp4q8x58801fg)
