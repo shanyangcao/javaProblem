@@ -12,15 +12,16 @@
 ## 📂 目录结构
 
 没有链接就是还没更新，偷个懒嘿嘿<br>
-[java基础](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/java%E5%9F%BA%E7%A1%80.md)<br>
-[mysql](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/mysql.md)<br>
-[jdbc](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/jdbc.md)<br>
-javaweb<br>
-[spring](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/spring.md)<br>
-[springmvc](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/springmv.md)<br>
-[mybatis](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/springmv.md)<br>
-[springboot](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/springmv.md)<br>
-[maven](https://github.com/shanyangcao/javaProblem/blob/main/Systematic-learning/springmv.md)<br>
+[java基础](Systematic-learning/java%E5%9F%BA%E7%A1%80.md)<br>
+[mysql](Systematic-learning/mysql.md)<br>
+[jdbc](Systematic-learning/jdbc.md)<br>
+[javaweb](Systematic-learning/javaweb.md)<br>
+[spring](Systematic-learning/spring.md)<br>
+[springmvc](Systematic-learning/springmv.md)<br>
+[mybatis](Systematic-learning/springmv.md)<br>
+[springboot](Systematic-learning/springmv.md)<br>
+[maven](Systematic-learning/springmv.md)<br>
+[github上传教程](https://www.yuque.com/g/chagumu/rvnsds/collaborator/join?token=I4ppd7EcsY4mFJ2g&source=book_collaborator# 《github上传》)
 git<br>
 
 [网页版（语雀）](https://www.yuque.com/g/chagumu/sh3gmd/collaborator/join?token=YDLQOi2yt5CPlLRA&source=book_collaborator#)
