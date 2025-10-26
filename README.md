@@ -21,7 +21,7 @@
 [mybatis](Systematic-learning/springmv.md)<br>
 [springboot](Systematic-learning/springmv.md)<br>
 [maven](Systematic-learning/springmv.md)<br>
-[github上传教程](https://www.yuque.com/g/chagumu/rvnsds/collaborator/join?token=I4ppd7EcsY4mFJ2g&source=book_collaborator# 《github上传》)
+[github上传教程](https://www.yuque.com/g/chagumu/rvnsds/collaborator/join?token=I4ppd7EcsY4mFJ2g&source=book_collaborator#)<br>
 git<br>
 
 [网页版（语雀）](https://www.yuque.com/g/chagumu/sh3gmd/collaborator/join?token=YDLQOi2yt5CPlLRA&source=book_collaborator#)
