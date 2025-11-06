@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--顶部导航栏,利用th:fragment提取出来,命名为topbar-->
+    <nav class="nav navbar fixed-top" th:fragment="topbar">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <div class="d-flex align-items-center"><a class="menu-btn d-flex align-items-center justify-content-center p-2 bg-gray-900" id="toggle-btn" th:href="@{#}">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                        <use xlink:th:href="#menu-1"> </use>
+                    </svg></a><a class="navbar-brand ms-2" href="index.html">
+                    <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0"><span class="text-white fw-normal text-xs">Bootstrap </span><strong class="text-primary text-sm">Dashboard</strong></div></a></div>
+                <ul class="nav-menu mb-0 list-unstyled d-flex flex-md-row align-items-md-center">
+                    <!-- Notifications dropdown-->
+                    <li class="nav-item dropdown"> <a class="nav-link text-white position-relative" id="notifications" rel="nofollow" data-bs-target="#" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                            <use xlink:href="#chart-1"> </use>
+                        </svg><span class="badge bg-warning">12</span></a>
+                        <ul class="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm" aria-labelledby="notifications">
+                            <li><a class="dropdown-item py-3" th:href="@{#}">
+                                <div class="d-flex">
+                                    <div class="icon icon-sm bg-blue">
+                                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                                            <use xlink:href="#envelope-1"> </use>
+                                        </svg>
+                                    </div>
+                                    <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">You have 6 new messages </span><small class="small text-gray-600">4 minutes ago</small></div>
+                                </div></a></li>
+                            <li><a class="dropdown-item py-3" th:href="@{#}">
+                                <div class="d-flex">
+                                    <div class="icon icon-sm bg-green">
+                                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                                            <use xlink:href="#chats-1"> </use>
+                                        </svg>
+                                    </div>
+                                    <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">New 2 WhatsApp messages</span><small class="small text-gray-600">4 minutes ago</small></div>
+                                </div></a></li>
+                            <li><a class="dropdown-item py-3" th:href="@{#}">
+                                <div class="d-flex">
+                                    <div class="icon icon-sm bg-orange">
+                                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                                            <use xlink:href="#checked-window-1"> </use>
+                                        </svg>
+                                    </div>
+                                    <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">Server Rebooted</span><small class="small text-gray-600">8 minutes ago</small></div>
+                                </div></a></li>
+                            <li><a class="dropdown-item py-3" th:href="@{#}">
+                                <div class="d-flex">
+                                    <div class="icon icon-sm bg-green">
+                                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                                            <use xlink:href="#chats-1"> </use>
+                                        </svg>
+                                    </div>
+                                    <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-xs text-gray-600">New 2 WhatsApp messages</span><small class="small text-gray-600">10 minutes ago</small></div>
+                                </div></a></li>
+                            <li><a class="dropdown-item all-notifications text-center" th:href="@{#}"> <strong class="text-xs text-gray-600">view all notifications                                            </strong></a></li>
+                        </ul>
+                    </li>
+                    <!-- Messages dropdown-->
+                    <li class="nav-item dropdown"> <a class="nav-link text-white position-relative" id="messages" rel="nofollow" data-bs-target="#" th:href="@{#}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                            <use xlink:href="#envelope-1"> </use>
+                        </svg><span class="badge bg-info">10</span></a>
+                        <ul class="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm" aria-labelledby="messages">
+                            <li><a class="dropdown-item d-flex py-3" th:href="@{#}"> <img class="img-fluid rounded-circle flex-shrink-0 avatar shadow-0" src="img/avatar-1.jpg" alt="..." width="45">
+                                <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-sm text-gray-600">Jason Doe</span><small class="small text-gray-600"> Sent You Message</small>
+                                    <p class="mb-0 small text-gray-600">3 days ago at 7:58 pm - 10.06.2014</p>
+                                </div></a></li>
+                            <li><a class="dropdown-item d-flex py-3" th:href="@{#}"> <img class="img-fluid rounded-circle flex-shrink-0 avatar shadow-0" src="img/avatar-2.jpg" alt="..." width="45">
+                                <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-sm text-gray-600">Jason Doe</span><small class="small text-gray-600"> Sent You Message</small>
+                                    <p class="mb-0 small text-gray-600">3 days ago at 7:58 pm - 10.06.2014</p>
+                                </div></a></li>
+                            <li><a class="dropdown-item d-flex py-3" th:href="@{#}"> <img class="img-fluid rounded-circle flex-shrink-0 avatar shadow-0" src="img/avatar-3.jpg" alt="..." width="45">
+                                <div class="ms-3"><span class="h6 d-block fw-normal mb-1 text-sm text-gray-600">Jason Doe</span><small class="small text-gray-600"> Sent You Message</small>
+                                    <p class="mb-0 small text-gray-600">3 days ago at 7:58 pm - 10.06.2014</p>
+                                </div></a></li>
+                            <li><a class="dropdown-item text-center" th:href="@{#}"> <strong class="text-xs text-gray-600">Read all messages       </strong></a></li>
+                        </ul>
+                    </li>
+                    <!-- Languages dropdown    -->
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-white text-sm" id="languages" rel="nofollow" data-bs-target="#" th:href="@{#}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block ms-2">English</span></a>
+                        <ul class="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm" aria-labelledby="languages">
+                            <li><a class="dropdown-item" rel="nofollow" th:href="@{#}"> <img class="me-2" src="img/flags/16/DE.png" alt="English"><span>German</span></a></li>
+                            <li><a class="dropdown-item" rel="nofollow" th:href="@{#}"> <img class="me-2" src="img/flags/16/FR.png" alt="English"><span>French                                                         </span></a></li>
+                        </ul>
+                    </li>
+                    <!-- Log out-->
+                    <li class="nav-item"><a class="nav-link text-white text-sm ps-0" th:href="@{/user/logout}"> <span class="d-none d-sm-inline-block">Logout</span>
+                        <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                            <use xlink:href="#security-1"> </use>
+                        </svg></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--侧边栏,利用th:fragment提取出来,命名为sidebar-->
+    <nav class="side-navbar" th:fragment="siderbar">
+        <div class="side-navbar-inner">
+            <!-- Sidebar Header    -->
+            <div class="sidebar-header d-flex align-items-center justify-content-center p-3 mb-3">
+                <!-- User Info-->
+                <div class="sidenav-header-inner text-center"><a th:href="@{pages-profile.html}"><img class="img-fluid rounded-circle avatar mb-2" src="img/avatar-7.jpg" alt="person"></a>
+                    <h2 class="h5 text-white text-uppercase mb-0" th:text="${session.LoginUser}">Nathan Andrews</h2>
+                    <p class="text-sm mb-0 text-muted">Web Developer</p>
+                </div>
+                <!-- Small Brand information, appears on minimized sidebar--><a class="brand-small text-center" href="index.html">
+                <p class="h1 m-0">BD</p></a>
+            </div>
+            <!-- Sidebar Navigation Menus--><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Main</span>
+            <ul class="list-unstyled">
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{index.html}">
+                    <svg th:class="${active=='index.html'?'svg-icon svg-icon-sm svg-icon-heavy me-2 active':'svg-icon svg-icon-sm svg-icon-heavy me-2'} ">
+                        <use xlink:href="#real-estate-1"> </use>
+                    </svg>Home </a></li>
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{#formsDropdown}" data-bs-toggle="collapse">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-2">
+                        <use xlink:href="#survey-1"> </use>
+                    </svg>Forms </a>
+                    <ul class="collapse list-unstyled " id="formsDropdown">
+                        <li><a class="sidebar-link" th:href="@{forms.html}">Basic forms</a></li>
+                        <li><a class="sidebar-link" th:href="@{forms-advanced.html}">Advanced forms</a></li>
+                        <li><a class="sidebar-link" th:href="@{forms-autocomplete.html}">Autocomplete</a></li>
+                        <li><a class="sidebar-link" th:href="@{forms-dropzone.html}">Files upload</a></li>
+                        <li><a class="sidebar-link" th:href="@{forms-texteditor.html}">Text editor</a></li>
+                        <li><a class="sidebar-link" th:href="@{forms-validation.html}">Validation</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{#chartsDropdown}" data-bs-toggle="collapse">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-2">
+                        <use xlink:href="#sales-up-1"> </use>
+                    </svg>Charts </a>
+                    <ul class="collapse list-unstyled " id="chartsDropdown">
+                        <li><a class="sidebar-link" th:href="@{charts.html}">Charts</a></li>
+                        <li><a class="sidebar-link" th:href="charts-gauge-sparkline.html">Gauge + Sparkline</a></li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+
+                    <a th:class="${active=='tables.html'?'sidebar-link active':'sidebar-link'}"
+                       href="#tablesDropdown" data-bs-toggle="collapse" data-bs-target="#tablesDropdown"
+                       >
+                        <svg class="svg-icon svg-icon-sm svg-icon-heavy me-2">
+                            <use xlink:href="#portfolio-grid-1"> </use>
+                        </svg>员工管理
+                    </a>
+                    <!-- 子选项的ID保持为tablesDropdown（与上面的data-bs-target对应） -->
+                    <ul class="collapse list-unstyled " id="tablesDropdown">
+                        <li><a class="sidebar-link" th:href="@{/emps}">Bootstrap tables</a></li>
+                        <li><a class="sidebar-link" th:href="@{tables-datatable.html}">Datatable</a></li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{#componentsDropdown}" data-bs-toggle="collapse">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-2">
+                        <use xlink:href="#stack-1"> </use>
+                    </svg>Components </a>
+                    <ul class="collapse list-unstyled " id="componentsDropdown">
+                        <li><a class="sidebar-link" th:href="@{components-cards.html}">Cards</a></li>
+                        <li><a class="sidebar-link" th:href="@{components-calendar.html}">Calendar</a></li>
+                        <li><a class="sidebar-link" th:href="@{components-gallery.html}">Gallery</a></li>
+                        <li><a class="sidebar-link" th:href="@{components-loading-buttons.html}">Loading buttons</a></li>
+                        <li><a class="sidebar-link" th:href="@{components-map.html}">Maps</a></li>
+                        <li><a class="sidebar-link" th:href="@{components-notifications.html}">Notifications</a></li>
+                        <li><a class="sidebar-link" th:href="@{components-preloader.html}">Preloaders</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{#pagesDropdown}" data-bs-toggle="collapse">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-2">
+                        <use xlink:href="#multiple-windows-1"> </use>
+                    </svg>Pages </a>
+                    <ul class="collapse list-unstyled " id="pagesDropdown">
+                        <li><a class="sidebar-link" th:href="@{pages-contacts.html}">Contacts</a></li>
+                        <li><a class="sidebar-link" th:href="@{pages-invoice.html}">Invoice</a></li>
+                        <li><a class="sidebar-link" th:href="@{login.html}">Login page</a></li>
+                        <li><a class="sidebar-link" th:href="@{login-2.html}">Login v.2 <span class="badge bg-info">New</span></a></li>
+                        <li><a class="sidebar-link" th:href="@{pages-profile.html}">Profile</a></li>
+                        <li><a class="sidebar-link" th:href="@{pages-pricing.html}">Pricing table</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{#}">
+                    <svg class="svg-icon svg-icon-xs svg-icon-heavy me-2">
+                        <use xlink:href="#imac-screen-1"> </use>
+                    </svg>Demo
+                    <div class="badge bg-warning">6 New</div></a></li>
+            </ul><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Second menu</span>
+            <ul class="list-unstyled py-4">
+                <li class="sidebar-item"> <a class="sidebar-link" th:href="@{#}">
+                    <svg class="svg-icon svg-icon-xs svg-icon-heavy me-2">
+                        <use xlink:href="#chart-1"> </use>
+                    </svg>Demo</a></li>
+                <li class="sidebar-item"> <a class="sidebar-link" th:href="@{#}">
+                    <svg class="svg-icon svg-icon-xs svg-icon-heavy me-2">
+                        <use xlink:href="#imac-screen-1"> </use>
+                    </svg>Demo
+                    <div class="badge bg-info">Special</div></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link" th:href="@{#}">
+                    <svg class="svg-icon svg-icon-xs svg-icon-heavy me-2">
+                        <use xlink:href="#quality-1"> </use>
+                    </svg>Demo</a></li>
+                <li class="sidebar-item"> <a class="sidebar-link" th:href="@{#}">
+                    <svg class="svg-icon svg-icon-xs svg-icon-heavy me-2">
+                        <use xlink:href="#security-shield-1"> </use>
+                    </svg>Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
