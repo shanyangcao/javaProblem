@@ -2,9 +2,7 @@
 
 #### ThreadLocal的特点
 
-![img](https://cdn.nlark.com/yuque/0/2025/png/56763514/1761181092311-5b325c6a-ebd6-47ce-8c7c-05400714bd3e.png)
-
-#### length什么时候加（）
+#### ![img](https://cdn.nlark.com/yuque/0/2025/png/56763514/1761181092311-5b325c6a-ebd6-47ce-8c7c-05400714bd3e.png)length什么时候加（）
 
 数组用 `length`（无括号，属性）
 
@@ -35,6 +33,109 @@
 ![img](https://cdn.nlark.com/yuque/0/2025/png/56763514/1760062497772-62ddae82-6ea9-43d1-af1c-b2ea58cab720.png)为什么不能写成(num & (1<<i) == 1 ? "1" : "0"呢
 
 比如0010左移1位为0100有值，应该输出1，而如果写成那种，与1不相等，则输出0，不符
+
+#### 序列化的作用是什么？
+
+**1. 序列化的核心定义**
+
+序列化（Serialization）是指：**将内存中的对象（如** `**Employee**` **实例）转换为可传输、可存储的格式（如 JSON 字符串、字节数组）的过程**。对应的反序列化（Deserialization）是其逆过程：将传输 / 存储的格式（如 JSON 字符串）转换回内存中的对象。
+
+核心作用：解决 “对象如何在不同场景（进程间、网络传输、持久化）中共享” 的问题 —— 内存中的对象无法直接传输或存储，必须通过序列化转换为统一格式。
+
+**2. 序列化的 3 个常见场景**
+
+**场景 1：网络传输（前后端交互）**
+
+Spring Boot 项目中，后端接口返回 `Employee` 对象时，会自动将对象**序列化为 JSON 字符串**，再通过 HTTP 响应发送给前端：
+
+```
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EmployeeController {
+
+    @GetMapping("/employees/{id}")
+    public Employee getEmployee(@PathVariable Integer id) {
+        // 用建造者模式创建 Employee 对象
+        Employee employee = Employee.builder()
+                .id(id)
+                .status("active")
+                .name("张三")
+                .build();
+        
+        // Spring Boot 自动将 employee 对象序列化为 JSON 字符串返回
+        return employee;
+    }
+}
+```
+
+前端收到的响应体（JSON 格式）：
+
+```
+{
+  "id": 1,
+  "status": "active",
+  "name": "张三"
+}
+```
+
+前端再通过 JavaScript 将 JSON 字符串**反序列化为对象**，就能直接使用：
+
+```
+// 前端代码（Vue/React 等）
+fetch("/employees/1")
+  .then(res => res.json()) // 反序列化：JSON 字符串 → JavaScript 对象
+  .then(employee => {
+    console.log(employee.name); // 输出：张三
+    console.log(employee.status); // 输出：active
+  });
+```
+
+场景 2：对象持久化（存储到文件 / 数据库）
+
+如果需要将 `Employee` 对象长期存储（比如存到本地文件），可以先将其序列化为字节数组或 JSON 字符串，再写入文件：
+
+```
+import com.fasterxml.jackson.databind.ObjectMapper; // Jackson 库，Spring Boot 默认集成
+import java.io.FileWriter;
+
+public class SerializationDemo {
+    public static void main(String[] args) throws Exception {
+        // 1. 创建 Employee 对象
+        Employee employee = Employee.builder()
+                .id(2)
+                .status("inactive")
+                .name("李四")
+                .build();
+        
+        // 2. 序列化：对象 → JSON 字符串（用 Jackson 的 ObjectMapper）
+        ObjectMapper objectMapper = new ObjectMapper();
+        String employeeJson = objectMapper.writeValueAsString(employee);
+        
+        // 3. 将 JSON 字符串写入文件（持久化）
+        try (FileWriter writer = new FileWriter("employee.json")) {
+            writer.write(employeeJson);
+        }
+        
+        System.out.println("序列化后的 JSON：" + employeeJson);
+        // 输出：{"id":2,"status":"inactive","name":"李四"}
+    }
+}
+```
+
+后续需要使用该对象时，再从文件读取 JSON 字符串，反序列化为 `Employee` 实例：
+
+```
+// 反序列化：JSON 字符串 → 对象
+Employee employeeFromFile = objectMapper.readValue(new File("employee.json"), Employee.class);
+System.out.println(employeeFromFile.getName()); // 输出：李四
+```
+
+场景 3：跨进程通信（如 RPC 调用）
+
+在分布式系统中，不同服务（进程）之间调用时（比如 A 服务调用 B 服务的方法），需要将参数对象（如 `Employee`）序列化为字节流，通过网络传输到 B 服务，B 服务再反序列化为对象进行处理。
 
 ## 反射（Reflection）
 
@@ -106,6 +207,6 @@ Spring 的 `TransactionTemplate` 等编程式事务管理工具，其底层也�
   - 代码生成工具（如根据数据库表结构动态生成实体类）。
   - AOP 框架的字节码织入（如 AspectJ 的编译期 / 运行期织入）
 
-## Properties类
+### `Properties`类
 
 `Properties`类最常见的用途是读取`.properties`格式的配置文件
